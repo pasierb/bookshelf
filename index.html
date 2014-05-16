@@ -8,17 +8,32 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
-
     {{outlet}}
   </script>
 
   <script type="text/x-handlebars" id="index">
+    <h2>Search</h2>
+    <form>
+      {{input type="search" value=search placeholder="Search field"}}
+    </form>
     <ul>
-    {{#each item in model}}
-      <li>{{item}}</li>
+    {{#each book in matchedBooks}}
+      <li>{{book-cover action="addToBookshelf" book=book}}</li>
     {{/each}}
     </ul>
+
+    <h2>Bookshelf</h2>
+    <div>
+      <ul>
+      {{#each book in bookshelf}}
+        <li>{{book-cover action="removeFromBookshelf" book=book}}</li>
+      {{/each}}
+      </ul>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" id="components/book-cover">
+    <div>{{book.cover_image_url}}</div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
