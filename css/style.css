@@ -2,3 +2,13 @@
 .ember-application {
     margin: 20px;
 }
+
+ul.book-cover-list li {
+    float: left;
+}
+
+.book-cover-wrapper {
+    max-width: 100px;
+    max-height: 170px;
+    display: inline-block;
+}
